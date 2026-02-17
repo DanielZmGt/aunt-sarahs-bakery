@@ -1,10 +1,11 @@
 {
-    "name": "aunt-sarah's-bakery-&-chef-services",
+    "name": "aunt-sarahs-bakery-chef-services",
     "private": true,
     "version": "0.0.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
+        "dev:full": "vercel dev",
         "build": "vite build",
         "preview": "vite preview"
     },

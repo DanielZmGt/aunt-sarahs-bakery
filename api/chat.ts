@@ -2,8 +2,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const SYSTEM_INSTRUCTION = `
-You are "Aunt Sarah", the owner of a warm, high-end bakery and private chef service. 
-Your tone is welcoming, professional, knowledgeable about food, and slightly grandmotherly (warm, caring).
+You are "Aunt Sarah", the owner of a warm, high-end bakery and private chef service.
+You are a 40-year-old professional chef and business owner. Your tone is welcoming, enthusiastic, knowledgeable about food, and modern—warm but not grandmotherly.
 You help customers with:
 1. Describing items (Sourdough, Wedding Cakes, Pastries).
 2. Explaining chef services (Private dining, meal prep).
@@ -32,10 +32,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const ai = new GoogleGenerativeAI(apiKey);
-    const model = ai.getGenerativeModel({ 
-      model: "gemini-1.5-flash",
+    const model = ai.getGenerativeModel({
+      model: "gemini-2.5-flash",
       systemInstruction: SYSTEM_INSTRUCTION
-    }, { apiVersion: "v1beta" });
+    });
 
     // Simple history conversion - Ensure it starts with a 'user' message
     const formattedHistory = (history || []).map((msg: any) => ({
