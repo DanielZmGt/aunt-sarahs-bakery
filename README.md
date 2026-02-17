@@ -1,20 +1,21 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Aunt Sarah's Bakery & Chef Services
 
-# Run and deploy your AI Studio app
+Handcrafted baked goods and private chef services.
 
-This contains everything you need to run your app locally.
+## Security & Deployment
 
-View your app in AI Studio: https://ai.studio/apps/drive/1ynq8nKEAnyEw8iuk6baT8kDXW29dAbH0
+This project uses a secure serverless backend to protect the Gemini API Key.
 
-## Run Locally
+### 1. Local Setup
+1. Get an API Key from [Google AI Studio](https://aistudio.google.com/app/apikey).
+2. Create a `.env.local` file in this directory.
+3. Add your key: `GEMINI_API_KEY=your_key_here`.
+4. Install dependencies: `npm install`.
+5. Run the app: `npm run dev`.
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 2. GitHub & Vercel Deployment
+1. Push this repository to GitHub.
+2. Connect your repo to **Vercel** (the standard for serverless functions).
+3. In Vercel, go to **Settings > Environment Variables**.
+4. Add `GEMINI_API_KEY` with your key value.
+5. Vercel will automatically host the `api/chat.js` function and your website securely.
