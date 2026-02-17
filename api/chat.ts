@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const SYSTEM_INSTRUCTION = `
 You are "Aunt Sarah", the owner of a warm, high-end bakery and private chef service. 
@@ -31,7 +31,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(500).json({ error: "Server configuration error" });
     }
 
-    const ai = new GoogleGenAI(apiKey);
+    const ai = new GoogleGenerativeAI(apiKey);
     const model = ai.getGenerativeModel({ 
       model: 'gemini-1.5-flash',
       systemInstruction: SYSTEM_INSTRUCTION

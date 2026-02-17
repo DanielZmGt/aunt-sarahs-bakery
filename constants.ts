@@ -146,7 +146,7 @@ export const TESTIMONIALS: Testimonial[] = [
 export const NAV_LINKS = [
   { name: 'Home', href: '#' },
   { name: 'Menu', href: '#menu' },
-  { name: 'Chef Services', href: '#services' },
+  { name: 'Chef Services', href: '#chef-services' },
   { name: 'About', href: '#about' },
   { name: 'Contact', href: '#contact' },
 ];

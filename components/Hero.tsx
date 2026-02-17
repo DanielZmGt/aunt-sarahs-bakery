@@ -37,7 +37,12 @@ export const Hero: React.FC<HeroProps> = ({ onShowMenu }) => {
               View Weekly Menu
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="border-accent-blue text-accent-blue hover:bg-accent-blue hover:text-white">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-accent-blue text-accent-blue hover:bg-accent-blue hover:text-white"
+              onClick={() => document.getElementById('chef-services')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Chef Services Info
             </Button>
           </div>

@@ -3,12 +3,14 @@ import { MENU_ITEMS } from '../constants';
 import { Button } from './Button';
 import { Star, ArrowLeft, ShoppingBag } from 'lucide-react';
 import { MenuItem } from '../types';
+import { useCart } from '../context/CartContext';
 
 interface FullMenuProps {
   onBack: () => void;
 }
 
 export const FullMenu: React.FC<FullMenuProps> = ({ onBack }) => {
+  const { addToCart, totalItems } = useCart();
   const categories: (MenuItem['category'])[] = ['bakery', 'chef-service', 'cake', 'gluten-free'];
   
   return (
@@ -23,7 +25,7 @@ export const FullMenu: React.FC<FullMenuProps> = ({ onBack }) => {
           <h1 className="font-serif text-2xl font-bold text-bakery-900">Our Full Menu</h1>
           <button className="relative p-2 text-gray-600 hover:text-bakery-600 transition-colors">
             <ShoppingBag className="w-6 h-6" />
-            <span className="absolute top-0 right-0 w-4 h-4 bg-accent-blue text-white text-[10px] flex items-center justify-center rounded-full">0</span>
+            <span className="absolute top-0 right-0 w-4 h-4 bg-accent-blue text-white text-[10px] flex items-center justify-center rounded-full">{totalItems}</span>
           </button>
         </div>
       </nav>
@@ -64,7 +66,11 @@ export const FullMenu: React.FC<FullMenuProps> = ({ onBack }) => {
                     </div>
                     <h4 className="font-serif text-2xl font-bold text-gray-900 mb-3">{item.name}</h4>
                     <p className="text-gray-600 mb-8 flex-1 leading-relaxed">{item.description}</p>
-                    <Button className="w-full py-6 text-lg rounded-2xl group-hover:bg-accent-blue transition-colors">
+                    <Button 
+                      onClick={() => addToCart(item)}
+                      className="w-full py-6 text-lg rounded-2xl group-hover:bg-accent-blue transition-colors flex items-center justify-center gap-2"
+                    >
+                      <ShoppingBag className="w-5 h-5" />
                       Add to Order
                     </Button>
                   </div>
