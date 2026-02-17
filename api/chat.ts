@@ -37,12 +37,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       systemInstruction: SYSTEM_INSTRUCTION
     });
 
-    // Simple history conversion
+    // Simple history conversion - Ensure it starts with a 'user' message
+    const formattedHistory = (history || []).map((msg: any) => ({
+      role: msg.role === 'user' ? 'user' : 'model',
+      parts: [{ text: msg.text }],
+    }));
+
+    // Find the first user message to comply with Gemini's requirement that history starts with 'user'
+    const firstUserIndex = formattedHistory.findIndex(h => h.role === 'user');
+    const validHistory = firstUserIndex !== -1 ? formattedHistory.slice(firstUserIndex) : [];
+
     const chat = model.startChat({
-      history: (history || []).map((msg: any) => ({
-        role: msg.role === 'user' ? 'user' : 'model',
-        parts: [{ text: msg.text }],
-      })),
+      history: validHistory,
     });
 
     const result = await chat.sendMessage(message);
