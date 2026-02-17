@@ -35,7 +35,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const model = ai.getGenerativeModel({ 
       model: "gemini-1.5-flash",
       systemInstruction: SYSTEM_INSTRUCTION
-    });
+    }, { apiVersion: "v1" });
 
     // Simple history conversion - Ensure it starts with a 'user' message
     const formattedHistory = (history || []).map((msg: any) => ({
