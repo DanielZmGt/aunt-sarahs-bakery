@@ -45,7 +45,7 @@ if (!apiKey) {
 }
 const genAI = new GoogleGenerativeAI(apiKey || "");
 const model = genAI.getGenerativeModel({
-    model: "gemini-2.5-flash",
+    model: "gemini-2.0-flash",
     systemInstruction: SYSTEM_INSTRUCTION
 });
 
@@ -64,38 +64,16 @@ app.post('/api/chat', async (req, res) => {
             parts: [{ text: msg.text }],
         }));
 
-        // Start chat session with primary model (2.5-flash)
+        // Start chat session
         const chat = model.startChat({
             history: formattedHistory,
         });
 
-        try {
-            const result = await chat.sendMessage(message);
-            const response = await result.response;
-            const text = response.text();
-            return res.json({ text });
-        } catch (error) {
-            // Check for Rate Limit (429)
-            if (error.message.includes('429') || error.status === 429) {
-                console.warn('⚠️ Quota exceeded for gemini-2.5-flash. Falling back to gemini-2.0-flash.');
+        const result = await chat.sendMessage(message);
+        const response = await result.response;
+        const text = response.text();
 
-                // Fallback Model
-                const modelFallback = genAI.getGenerativeModel({
-                    model: "gemini-2.0-flash",
-                    systemInstruction: SYSTEM_INSTRUCTION
-                });
-
-                const chatFallback = modelFallback.startChat({
-                    history: formattedHistory,
-                });
-
-                const resultFallback = await chatFallback.sendMessage(message);
-                const responseFallback = await resultFallback.response;
-                const textFallback = responseFallback.text();
-                return res.json({ text: textFallback, info: 'Served by fallback model' });
-            }
-            throw error; // Re-throw other errors
-        }
+        return res.json({ text });
 
     } catch (error) {
         console.error('Error in /api/chat:', error);
