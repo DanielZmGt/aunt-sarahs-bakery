@@ -13,13 +13,15 @@ export const sendMessageToGemini = async (
     });
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      const errorText = await response.text();
+      console.error(`API Error: ${response.status} ${response.statusText}`, errorText);
+      throw new Error(`Server returned ${response.status}: ${errorText}`);
     }
 
     const data = await response.json();
     return data.text || "I'm sorry, I'm having trouble checking the oven right now.";
   } catch (error) {
     console.error("Chat Error:", error);
-    return "Oh dear, it seems I've dropped a whisk. Could you please ask that again?";
+    return "Oh dear, it seems I've dropped a whisk. Could you please ask that again? (Check console for details)";
   }
 };

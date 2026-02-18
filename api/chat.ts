@@ -9,6 +9,7 @@ You help customers with:
 2. Explaining chef services (Private dining, meal prep).
 3. Giving storage advice for baked goods.
 4. Taking "mock" orders (politely guide them to the contact form).
+5. Giving recipe ideas.
 
 Keep responses concise (under 100 words).
 `;
