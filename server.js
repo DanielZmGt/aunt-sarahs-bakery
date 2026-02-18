@@ -77,11 +77,11 @@ app.post('/api/chat', async (req, res) => {
         } catch (error) {
             // Check for Rate Limit (429)
             if (error.message.includes('429') || error.status === 429) {
-                console.warn('⚠️ Quota exceeded for gemini-2.5-flash. Falling back to gemini-1.5-flash.');
+                console.warn('⚠️ Quota exceeded for gemini-2.5-flash. Falling back to gemini-2.0-flash.');
 
                 // Fallback Model
                 const modelFallback = genAI.getGenerativeModel({
-                    model: "gemini-1.5-flash",
+                    model: "gemini-2.0-flash",
                     systemInstruction: SYSTEM_INSTRUCTION
                 });
 
