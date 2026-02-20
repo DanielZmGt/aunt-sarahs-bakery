@@ -1,13 +1,28 @@
 # Aunt Sarah's Bakery & Chef Services
 
-An artisanal bakery and private chef service platform, featuring a React-based frontend and a secure serverless backend integrated with Google Gemini AI.
+![Project Preview](public/images/project-preview.png)
 
-## 🚀 Features
+Aunt Sarah's Bakery is an artisanal platform designed to bring the warmth of a home kitchen directly to you. This project features a modern React-based frontend and a secure serverless backend, integrating Google Gemini AI to provide a personalized culinary experience.
 
-- **Artisanal Menu**: Browse a wide range of handcrafted baked goods and cakes.
-- **Private Chef Services**: Learn about and book exclusive culinary experiences.
-- **AI Assistant**: Interact with "Aunt Sarah," an AI powered by Gemini 1.5 Flash, for culinary advice and order assistance.
-- **Secure Architecture**: Serverless backend proxy to protect API credentials and prevent sensitive information leaks.
+## 🚀 Key Features
+
+### 🍰 Artisanal Menu
+Explore our handcrafted selection of sourdough breads, custom cakes, and seasonal baked goods. Each item is made with 100% organic ingredients and professional standards.
+
+### 👨‍🍳 Private Chef Services
+Beyond baking, we offer exclusive private chef experiences for weddings, events, or luxury meal prepping, tailored to your specific culinary needs.
+
+### 🤖 "Aunt Sarah" AI Assistant
+Meet "Aunt Sarah," our AI culinary companion powered by Google Gemini 1.5 Flash. Sarah can:
+- Recommend the perfect crusty sourdough for your dinner party.
+- Help you plan a dream wedding cake design.
+- Answer questions about ingredients and organic sourcing.
+- Assist with order inquiries and scheduling private chef services.
+
+### 🔐 Secure Architecture
+- **Serverless Backend**: A secure proxy handles all AI requests, ensuring API credentials never reach the client.
+- **Privacy First**: Chat history remains anonymous and is only kept in-memory to protect user data.
+
 
 ## 🛠️ Tech Stack
 
