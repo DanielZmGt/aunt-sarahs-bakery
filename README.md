@@ -13,7 +13,7 @@ Explore our handcrafted selection of sourdough breads, custom cakes, and seasona
 Beyond baking, we offer exclusive private chef experiences for weddings, events, or luxury meal prepping, tailored to your specific culinary needs.
 
 ### 🤖 "Aunt Sarah" AI Assistant
-Meet "Aunt Sarah," our AI culinary companion powered by Google Gemini 1.5 Flash. Sarah can:
+Meet "Aunt Sarah," our AI culinary companion powered by Google Gemini 2.0 Flash Sarah can:
 - Recommend the perfect crusty sourdough for your dinner party.
 - Help you plan a dream wedding cake design.
 - Answer questions about ingredients and organic sourcing.
@@ -29,46 +29,18 @@ Meet "Aunt Sarah," our AI culinary companion powered by Google Gemini 1.5 Flash.
 - **Frontend**: React 19, TypeScript, Vite, Tailwind CSS
 - **Icons**: Lucide React
 - **AI**: Google Gemini SDK
-- **Deployment**: Vercel (recommended for Serverless Functions)
+- **Deployment**: Vercel
 
 ## 🔐 Security & Community Standards
 
 This project adheres to professional security standards:
 - **API Protection**: The Gemini API key is never exposed to the client. All AI requests are proxied through a secure `/api/chat` serverless function.
-- **Environment Management**: sensitive keys are managed via `.env` files (locally) and Repository Secrets (production).
-- **History Privacy**: Chat history is kept in-memory and not logged or stored.
-
-## 💻 Local Development
-
-### Prerequisites
-- Node.js (Latest LTS recommended)
-- npm
-
-### Installation
-1. Clone the repository.
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Create a `.env.local` file in the root directory and add your API key:
-   ```env
-   GEMINI_API_KEY=your_google_ai_studio_key
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-## 🌐 Deployment
-
-### Deploying to Vercel (Recommended)
-1. Push your code to a GitHub repository.
-2. Import the repository into the [Vercel Dashboard](https://vercel.com).
-3. In **Project Settings > Environment Variables**, add:
-   - Key: `GEMINI_API_KEY`
-   - Value: `your_actual_api_key`
-4. Deploy. Vercel will automatically detect the `/api` directory and host your serverless functions.
 
 ## 📄 License
 
-This project is private and intended for internal use.
+This project is private and is the exclusive property of Daniel ZG and Sarah Jones. See the [LICENSE](LICENSE) file for details.
+
+
+
+
+
